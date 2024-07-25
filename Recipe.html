@@ -14,6 +14,18 @@
             text-align: center;
             color: #333;
         }
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
         .recipe {
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -24,8 +36,12 @@
         h2 {
             color: #444;
         }
-        .ingredients, .instructions {
+        .ingredients, .instructions, .tags {
             margin: 10px 0;
+        }
+        .tags {
+            font-style: italic;
+            color: #555;
         }
     </style>
 </head>
@@ -33,359 +49,388 @@
 
 <h1>The Cook Book</h1>
 
-<div class="recipe">
-    <h2>1. Vegetable Stir-Fry</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 cup broccoli</li>
-            <li>1 cup bell peppers</li>
-            <li>1 cup carrots</li>
-            <li>2 tablespoons soy sauce</li>
-            <li>1 tablespoon olive oil</li>
-        </ul>
-    </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Heat olive oil in a pan, add vegetables, and stir-fry for 5-7 minutes. Add soy sauce and cook for an additional 2 minutes.</p>
-    </div>
-</div>
+<nav>
+    <a href="#recipes">Recipes</a>
+    <a href="#vegetarian">Vegetarian</a>
+    <a href="#gluten-free">Gluten-Free</a>
+    <a href="#desserts">Desserts</a>
+</nav>
 
-<div class="recipe">
-    <h2>2. Lemon Garlic Chicken</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 chicken breasts</li>
-            <li>3 cloves garlic, minced</li>
-            <li>1 lemon, juiced</li>
-            <li>2 tablespoons olive oil</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+<div id="recipes">
+    <div class="recipe">
+        <h2>1. Vegetable Stir-Fry</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Quick</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 cup broccoli</li>
+                <li>1 cup bell peppers</li>
+                <li>1 cup carrots</li>
+                <li>2 tablespoons soy sauce</li>
+                <li>1 tablespoon olive oil</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Heat olive oil in a pan, add vegetables, and stir-fry for 5-7 minutes. Add soy sauce and cook for an additional 2 minutes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Marinate chicken in lemon juice, garlic, olive oil, salt, and pepper for 30 minutes. Grill for 6-7 minutes on each side.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>3. Caprese Salad</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>3 tomatoes, sliced</li>
-            <li>1 ball mozzarella, sliced</li>
-            <li>Fresh basil leaves</li>
-            <li>2 tablespoons balsamic vinegar</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>2. Lemon Garlic Chicken</h2>
+        <div class="tags"><strong>Tags:</strong> Gluten-Free, Quick</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 chicken breasts</li>
+                <li>3 cloves garlic, minced</li>
+                <li>1 lemon, juiced</li>
+                <li>2 tablespoons olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Marinate chicken in lemon juice, garlic, olive oil, salt, and pepper for 30 minutes. Grill for 6-7 minutes on each side.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Layer tomatoes, mozzarella, and basil. Drizzle with balsamic vinegar and season with salt and pepper.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>4. Shrimp Tacos</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 pound shrimp, peeled and deveined</li>
-            <li>1 tablespoon taco seasoning</li>
-            <li>4 corn tortillas</li>
-            <li>1 cup cabbage, shredded</li>
-            <li>1 avocado, sliced</li>
-        </ul>
+    <div class="recipe">
+        <h2>3. Caprese Salad</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Fresh</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>3 tomatoes, sliced</li>
+                <li>1 ball mozzarella, sliced</li>
+                <li>Fresh basil leaves</li>
+                <li>2 tablespoons balsamic vinegar</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Layer tomatoes, mozzarella, and basil. Drizzle with balsamic vinegar and season with salt and pepper.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Season shrimp with taco seasoning and sauté until cooked. Serve in tortillas with cabbage and avocado.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>5. Quinoa Salad</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 cup cooked quinoa</li>
-            <li>1 cucumber, diced</li>
-            <li>1 bell pepper, diced</li>
-            <li>1/4 cup olive oil</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>4. Shrimp Tacos</h2>
+        <div class="tags"><strong>Tags:</strong> Quick, Seafood</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 pound shrimp, peeled and deveined</li>
+                <li>1 tablespoon taco seasoning</li>
+                <li>4 corn tortillas</li>
+                <li>1 cup cabbage, shredded</li>
+                <li>1 avocado, sliced</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Season shrimp with taco seasoning and sauté until cooked. Serve in tortillas with cabbage and avocado.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Mix quinoa with vegetables, olive oil, salt, and pepper. Serve chilled.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>6. Spinach and Feta Stuffed Chicken</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 chicken breasts</li>
-            <li>1 cup spinach</li>
-            <li>1/2 cup feta cheese</li>
-            <li>1 tablespoon olive oil</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>5. Quinoa Salad</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 cup cooked quinoa</li>
+                <li>1 cucumber, diced</li>
+                <li>1 bell pepper, diced</li>
+                <li>1/4 cup olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Mix quinoa with vegetables, olive oil, salt, and pepper. Serve chilled.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Stuff chicken breasts with spinach and feta. Sear in olive oil and bake at 375°F for 25 minutes.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>7. Creamy Tomato Soup</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>4 cups tomatoes, diced</li>
-            <li>1 onion, chopped</li>
-            <li>2 cloves garlic, minced</li>
-            <li>1 cup cream</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>6. Spinach and Feta Stuffed Chicken</h2>
+        <div class="tags"><strong>Tags:</strong> Gluten-Free</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 chicken breasts</li>
+                <li>1 cup spinach</li>
+                <li>1/2 cup feta cheese</li>
+                <li>1 tablespoon olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Stuff chicken breasts with spinach and feta. Sear in olive oil and bake at 375°F for 25 minutes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Sauté onion and garlic, add tomatoes and simmer. Blend and stir in cream, then season with salt and pepper.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>8. Chickpea Curry</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 can chickpeas</li>
-            <li>1 can coconut milk</li>
-            <li>2 tablespoons curry powder</li>
-            <li>1 onion, chopped</li>
-            <li>Salt to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>7. Creamy Tomato Soup</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Comfort Food</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>4 cups tomatoes, diced</li>
+                <li>1 onion, chopped</li>
+                <li>2 cloves garlic, minced</li>
+                <li>1 cup cream</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Sauté onion and garlic, add tomatoes and simmer. Blend and stir in cream, then season with salt and pepper.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Sauté onion, add chickpeas and curry powder. Stir in coconut milk and simmer for 15 minutes. Season with salt.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>9. Roasted Vegetable Medley</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 cups mixed vegetables (zucchini, bell peppers, carrots)</li>
-            <li>2 tablespoons olive oil</li>
-            <li>Salt and pepper to taste</li>
-            <li>1 teaspoon dried herbs</li>
-        </ul>
+    <div class="recipe">
+        <h2>8. Chickpea Curry</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Spicy</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 can chickpeas</li>
+                <li>1 can coconut milk</li>
+                <li>2 tablespoons curry powder</li>
+                <li>1 onion, chopped</li>
+                <li>Salt to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Sauté onion, add chickpeas and curry powder. Stir in coconut milk and simmer for 15 minutes. Season with salt.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Toss vegetables with olive oil, salt, pepper, and herbs. Roast at 400°F for 20-25 minutes.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>10. Banana Oatmeal Pancakes</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 cup oats</li>
-            <li>1 banana, mashed</li>
-            <li>1 cup milk</li>
-            <li>1 teaspoon baking powder</li>
-            <li>Maple syrup for serving</li>
-        </ul>
+    <div class="recipe">
+        <h2>9. Roasted Vegetable Medley</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 cups mixed vegetables (zucchini, bell peppers, carrots)</li>
+                <li>2 tablespoons olive oil</li>
+                <li>Salt and pepper to taste</li>
+                <li>1 teaspoon dried herbs</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Toss vegetables with olive oil, salt, pepper, and herbs. Roast at 400°F for 20-25 minutes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Blend all ingredients until smooth. Cook on a skillet until golden brown. Serve with maple syrup.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>11. Grilled Vegetable Skewers</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 zucchini, sliced</li>
-            <li>1 bell pepper, chopped</li>
-            <li>1 red onion, cut into chunks</li>
-            <li>2 tablespoons olive oil</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>10. Banana Oatmeal Pancakes</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Breakfast</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 cup oats</li>
+                <li>1 banana, mashed</li>
+                <li>1 cup milk</li>
+                <li>1 teaspoon baking powder</li>
+                <li>Maple syrup for serving</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Blend all ingredients until smooth. Cook on a skillet until golden brown. Serve with maple syrup.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Toss vegetables with olive oil, salt, and pepper. Thread onto skewers and grill for 10-15 minutes.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>12. Spinach and Mushroom Quesadillas</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 tortillas</li>
-            <li>1 cup spinach</li>
-            <li>1 cup mushrooms, sliced</li>
-            <li>1 cup cheese, shredded</li>
-            <li>1 tablespoon olive oil</li>
-        </ul>
+    <div class="recipe">
+        <h2>11. Grilled Vegetable Skewers</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, BBQ</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 zucchini, sliced</li>
+                <li>1 bell pepper, chopped</li>
+                <li>1 red onion, cut into chunks</li>
+                <li>2 tablespoons olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Toss vegetables with olive oil, salt, and pepper. Thread onto skewers and grill for 10-15 minutes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Sauté mushrooms and spinach in olive oil. Place mixture on a tortilla, sprinkle with cheese, and top with another tortilla. Cook until golden.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>13. Sweet Potato Fries</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 sweet potatoes, cut into fries</li>
-            <li>2 tablespoons olive oil</li>
-            <li>Salt to taste</li>
-            <li>1 teaspoon paprika</li>
-        </ul>
+    <div class="recipe">
+        <h2>12. Spinach and Mushroom Quesadillas</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Quick</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 tortillas</li>
+                <li>1 cup spinach</li>
+                <li>1 cup mushrooms, sliced</li>
+                <li>1 cup cheese, shredded</li>
+                <li>1 tablespoon olive oil</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Sauté mushrooms and spinach in olive oil. Place mixture on a tortilla, sprinkle with cheese, and top with another tortilla. Cook until golden.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Toss fries with olive oil, salt, and paprika. Bake at 425°F for 25-30 minutes until crispy.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>14. Coconut Rice</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 cup rice</li>
-            <li>1 can coconut milk</li>
-            <li>1 cup water</li>
-            <li>1 tablespoon sugar</li>
-            <li>Salt to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>13. Sweet Potato Fries</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 sweet potatoes, cut into fries</li>
+                <li>2 tablespoons olive oil</li>
+                <li>Salt to taste</li>
+                <li>1 teaspoon paprika</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Toss fries with olive oil, salt, and paprika. Bake at 425°F for 25-30 minutes until crispy.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Combine rice, coconut milk, water, sugar, and salt in a pot. Bring to a boil, then simmer until rice is cooked.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>15. Zucchini Noodles with Pesto</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 zucchinis, spiralized</li>
-            <li>1/4 cup pesto</li>
-            <li>1 tablespoon olive oil</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>14. Coconut Rice</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Side Dish</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 cup rice</li>
+                <li>1 can coconut milk</li>
+                <li>1 cup water</li>
+                <li>1 tablespoon sugar</li>
+                <li>Salt to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Combine rice, coconut milk, water, sugar, and salt in a pot. Bring to a boil, then simmer until rice is cooked.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Sauté zucchini noodles in olive oil for 3-4 minutes. Stir in pesto and season with salt and pepper.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>16. Eggplant Parmesan</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 eggplant, sliced</li>
-            <li>1 cup marinara sauce</li>
-            <li>1 cup mozzarella cheese, shredded</li>
-            <li>1/2 cup breadcrumbs</li>
-            <li>Olive oil for drizzling</li>
-        </ul>
+    <div class="recipe">
+        <h2>15. Zucchini Noodles with Pesto</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 zucchinis, spiralized</li>
+                <li>1/4 cup pesto</li>
+                <li>1 tablespoon olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Sauté zucchini noodles in olive oil for 3-4 minutes. Stir in pesto and season with salt and pepper.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Layer eggplant slices in a baking dish, top with marinara, cheese, and breadcrumbs. Drizzle with olive oil and bake at 375°F for 30 minutes.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>17. Mediterranean Chickpea Salad</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 can chickpeas, drained</li>
-            <li>1 cucumber, diced</li>
-            <li>1 cup cherry tomatoes, halved</li>
-            <li>1/4 cup feta cheese</li>
-            <li>2 tablespoons olive oil</li>
-        </ul>
+    <div class="recipe">
+        <h2>16. Eggplant Parmesan</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Comfort Food</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 eggplant, sliced</li>
+                <li>1 cup marinara sauce</li>
+                <li>1 cup mozzarella cheese, shredded</li>
+                <li>1/2 cup breadcrumbs</li>
+                <li>Olive oil for drizzling</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Layer eggplant slices in a baking dish, top with marinara, cheese, and breadcrumbs. Drizzle with olive oil and bake at 375°F for 30 minutes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Combine all ingredients in a bowl, drizzle with olive oil, and toss to combine.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>18. Spinach and Cheese Stuffed Peppers</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 bell peppers, halved</li>
-            <li>1 cup spinach</li>
-            <li>1/2 cup ricotta cheese</li>
-            <li>1/2 cup mozzarella cheese</li>
-            <li>Salt and pepper to taste</li>
-        </ul>
+    <div class="recipe">
+        <h2>17. Mediterranean Chickpea Salad</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 can chickpeas, drained</li>
+                <li>1 cucumber, diced</li>
+                <li>1 cup cherry tomatoes, halved</li>
+                <li>1/4 cup feta cheese</li>
+                <li>2 tablespoons olive oil</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Combine all ingredients in a bowl, drizzle with olive oil, and toss to combine.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Mix spinach with cheeses, stuff into pepper halves, and bake at 375°F for 25 minutes.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>19. Avocado Toast</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>2 slices bread</li>
-            <li>1 ripe avocado</li>
-            <li>Salt and pepper to taste</li>
-            <li>Red pepper flakes (optional)</li>
-        </ul>
+    <div class="recipe">
+        <h2>18. Spinach and Cheese Stuffed Peppers</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Gluten-Free</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 bell peppers, halved</li>
+                <li>1 cup spinach</li>
+                <li>1/2 cup ricotta cheese</li>
+                <li>1/2 cup mozzarella cheese</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Mix spinach with cheeses, stuff into pepper halves, and bake at 375°F for 25 minutes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Toast bread, mash avocado on top, and season with salt, pepper, and red pepper flakes.</p>
-    </div>
-</div>
 
-<div class="recipe">
-    <h2>20. Fruit Salad</h2>
-    <div class="ingredients">
-        <strong>Ingredients:</strong>
-        <ul>
-            <li>1 cup strawberries, sliced</li>
-            <li>1 cup blueberries</li>
-            <li>1 cup pineapple, diced</li>
-            <li>1 tablespoon honey</li>
-            <li>1 tablespoon lemon juice</li>
-        </ul>
+    <div class="recipe">
+        <h2>19. Avocado Toast</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Quick</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 slices bread</li>
+                <li>1 ripe avocado</li>
+                <li>Salt and pepper to taste</li>
+                <li>Red pepper flakes (optional)</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Toast bread, mash avocado on top, and season with salt, pepper, and red pepper flakes.</p>
+        </div>
     </div>
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        <p>Combine fruits in a bowl, drizzle with honey and lemon juice, and toss gently.</p>
+
+    <div class="recipe">
+        <h2>20. Fruit Salad</h2>
+        <div class="tags"><strong>Tags:</strong> Vegetarian, Fresh</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>1 cup strawberries, sliced</li>
+                <li>1 cup blueberries</li>
+                <li>1 cup pineapple, diced</li>
+                <li>1 tablespoon honey</li>
+                <li>1 tablespoon lemon juice</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Combine fruits in a bowl, drizzle with honey and lemon juice, and toss gently.</p>
+        </div>
     </div>
 </div>
 
