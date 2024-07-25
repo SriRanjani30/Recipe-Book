@@ -6,13 +6,14 @@
     <title>The Cook Book</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 20px;
             background-color: #f9f9f9;
-        }
-        h1 {
-            text-align: center;
             color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
         }
         nav {
             text-align: center;
@@ -21,56 +22,207 @@
         nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: #007BFF;
+            color: #2980b9;
+            font-weight: bold;
         }
         nav a:hover {
             text-decoration: underline;
         }
         .recipe {
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            color: #000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 15px 0;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
             perspective: 1000px;
         }
         .recipe:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
         h2 {
-            color: #000;
-        }
-        .ingredients, .instructions, .tags {
-            margin: 10px 0;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
         .tags {
             font-style: italic;
+            color: #7f8c8d;
+        }
+        .ingredients, .instructions {
+            margin: 10px 0;
+            color: #555;
+        }
+        .ingredients ul, .instructions ul {
+            padding-left: 20px;
+        }
+        .favorite {
+            color: #e74c3c;
+            cursor: pointer;
+        }
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .search-bar button:hover {
+            background-color: #1a5276;
+        }
+        .filter {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .comments {
+            margin-top: 20px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .comment-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .comment-form button:hover {
+            background-color: #1a5276;
+        }
+        .rating {
+            margin-top: 10px;
+        }
+        .rating span {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #f39c12;
         }
         /* Unique background colors for each recipe */
-        .recipe1 { background-color: #ff6f61; }
-        .recipe2 { background-color: #6b5b95; }
-        .recipe3 { background-color: #88b04b; }
-        .recipe4 { background-color: #f7cac9; }
-        .recipe5 { background-color: #92a8d1; }
-        .recipe6 { background-color: #955251; }
-        .recipe7 { background-color: #b9e2b1; }
-        .recipe8 { background-color: #f6f1d6; }
-        .recipe9 { background-color: #ffcc5c; }
-        .recipe10 { background-color: #d5b0e0; }
-        .recipe11 { background-color: #ffb6c1; }
-        .recipe12 { background-color: #add8e6; }
-        .recipe13 { background-color: #ffa07a; }
-        .recipe14 { background-color: #20b2aa; }
-        .recipe15 { background-color: #f0e68c; }
-        .recipe16 { background-color: #ffdead; }
-        .recipe17 { background-color: #ff69b4; }
-        .recipe18 { background-color: #f5deb3; }
-        .recipe19 { background-color: #e6e6fa; }
-        .recipe20 { background-color: #d8bfd8; }
+        .recipe1 { background-color: #ffebee; }
+        .recipe2 { background-color: #e3f2fd; }
+        .recipe3 { background-color: #e8f5e9; }
+        .recipe4 { background-color: #f3e5f5; }
+        .recipe5 { background-color: #fffde7; }
+        .recipe6 { background-color: #ffe0b2; }
+        .recipe7 { background-color: #ffccbc; }
+        .recipe8 { background-color: #f8bbd0; }
+        .recipe9 { background-color: #b2ebf2; }
+        .recipe10 { background-color: #d7ccc8; }
+        .recipe11 { background-color: #d1c4e9; }
+        .recipe12 { background-color: #f0f4c3; }
+        .recipe13 { background-color: #ffe082; }
+        .recipe14 { background-color: #c8e6c9; }
+        .recipe15 { background-color: #ffccbc; }
+        .recipe16 { background-color: #b3e5fc; }
+        .recipe17 { background-color: #f8bbd0; }
+        .recipe18 { background-color: #cfd8dc; }
+        .recipe19 { background-color: #e1bee7; }
+        .recipe20 { background-color: #fff8e1; }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        form input, form textarea, form select, form button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        form button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #1a5276;
+        }
     </style>
+    <script>
+        function searchRecipes() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const recipes = document.getElementsByClassName('recipe');
+            for (let recipe of recipes) {
+                const title = recipe.getElementsByTagName('h2')[0].innerText.toLowerCase();
+                const ingredients = recipe.getElementsByClassName('ingredients')[0].innerText.toLowerCase();
+                if (title.includes(input) || ingredients.includes(input)) {
+                    recipe.style.display = '';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            }
+        }
+
+        function filterRecipes() {
+            const filter = document.getElementById('filter-select').value;
+            const recipes = document.getElementsByClassName('recipe');
+            for (let recipe of recipes) {
+                const tags = recipe.getElementsByClassName('tags')[0].innerText;
+                if (tags.includes(filter) || filter === 'All') {
+                    recipe.style.display = '';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            }
+        }
+
+        function toggleFavorite(event) {
+            event.target.classList.toggle('favorite');
+        }
+
+        function rateRecipe(event) {
+            const rating = event.target.dataset.rating;
+            alert(`You rated this recipe ${rating} stars!`);
+        }
+
+        function addComment(event, recipeId) {
+            event.preventDefault();
+            const comment = document.getElementById(`comment-input-${recipeId}`).value;
+            const commentList = document.getElementById(`comments-list-${recipeId}`);
+            const commentItem = document.createElement('li');
+            commentItem.innerText = comment;
+            commentList.appendChild(commentItem);
+        }
+
+        function addRecipe(event) {
+            event.preventDefault();
+            // Logic to dynamically add a new recipe
+            alert('New recipe added!');
+        }
+    </script>
 </head>
 <body>
 
@@ -83,28 +235,101 @@
     <a href="#desserts">Desserts</a>
 </nav>
 
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search for recipes...">
+    <button onclick="searchRecipes()">Search</button>
+</div>
+
+<div class="filter">
+    <select id="filter-select" onchange="filterRecipes()">
+        <option value="All">All</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Gluten-Free">Gluten-Free</option>
+        <option value="Quick">Quick</option>
+        <option value="Healthy">Healthy</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Vegan">Vegan</option>
+        <option value="Spicy">Spicy</option>
+    </select>
+</div>
+
 <div id="recipes">
     <div class="recipe recipe1">
-        <h2>1. Vegetable Stir-Fry</h2>
-        <div class="tags"><strong>Tags:</strong> Vegetarian, Quick</div>
+        <h2>1. Spaghetti Carbonara <span class="favorite" onclick="toggleFavorite(event)">&#9733;</span></h2>
+        <div class="tags"><strong>Tags:</strong> Quick, Dinner</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
             <ul>
-                <li>1 cup broccoli</li>
-                <li>1 cup bell peppers</li>
-                <li>1 cup carrots</li>
-                <li>2 tablespoons soy sauce</li>
-                <li>1 tablespoon olive oil</li>
+                <li>200g spaghetti</li>
+                <li>100g pancetta</li>
+                <li>2 large eggs</li>
+                <li>50g pecorino cheese</li>
+                <li>50g parmesan</li>
+                <li>Freshly ground black pepper</li>
+                <li>Salt</li>
+                <li>2 plump garlic cloves</li>
+                <li>50g unsalted butter</li>
             </ul>
         </div>
         <div class="instructions">
             <strong>Instructions:</strong>
-            <p>Heat olive oil in a pan, add vegetables, and stir-fry for 5-7 minutes. Add soy sauce and cook for an additional 2 minutes.</p>
+            <p>Cook the spaghetti. Fry the pancetta. Beat the eggs and combine with cheeses. Mix everything together and serve with extra cheese and black pepper.</p>
+        </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-1"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 1)">
+                <textarea id="comment-input-1" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
-
     <div class="recipe recipe2">
-        <h2>2. Lemon Garlic Chicken</h2>
+        <h2>2. Chicken Alfredo <span class="favorite" onclick="toggleFavorite(event)">&#9733;</span></h2>
+        <div class="tags"><strong>Tags:</strong> Dinner</div>
+        <div class="ingredients">
+            <strong>Ingredients:</strong>
+            <ul>
+                <li>2 chicken breasts</li>
+                <li>1 cup heavy cream</li>
+                <li>1/2 cup grated Parmesan cheese</li>
+                <li>1 tablespoon butter</li>
+                <li>2 cloves garlic, minced</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <strong>Instructions:</strong>
+            <p>Cook chicken in a pan until golden brown. In a separate pan, melt butter, add garlic, heavy cream, and Parmesan. Mix with chicken and serve over pasta.</p>
+        </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- Add more recipes here with similar structure -->
+</div> <div class="recipe recipe3">
+        <h2>3. Lemon Garlic Chicken</h2>
         <div class="tags"><strong>Tags:</strong> Gluten-Free, Quick</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -119,11 +344,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Marinate chicken in lemon juice, garlic, olive oil, salt, and pepper for 30 minutes. Grill for 6-7 minutes on each side.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 3)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe3">
-        <h2>3. Caprese Salad</h2>
+    <div class="recipe recipe4">
+        <h2>4. Caprese Salad</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Fresh</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -138,11 +378,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Layer tomatoes, mozzarella, and basil. Drizzle with balsamic vinegar and season with salt and pepper.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe4">
-        <h2>4. Shrimp Tacos</h2>
+    <div class="recipe recipe5">
+        <h2>5. Shrimp Tacos</h2>
         <div class="tags"><strong>Tags:</strong> Quick, Seafood</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -157,11 +412,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Season shrimp with taco seasoning and sauté until cooked. Serve in tortillas with cabbage and avocado.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe5">
-        <h2>5. Quinoa Salad</h2>
+    <div class="recipe recipe6">
+        <h2>6. Quinoa Salad</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -176,11 +446,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Mix quinoa with vegetables, olive oil, salt, and pepper. Serve chilled.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe6">
-        <h2>6. Spinach and Feta Stuffed Chicken</h2>
+    <div class="recipe recipe7">
+        <h2>7. Spinach and Feta Stuffed Chicken</h2>
         <div class="tags"><strong>Tags:</strong> Gluten-Free</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -195,11 +480,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Stuff chicken breasts with spinach and feta. Sear in olive oil and bake at 375°F for 25 minutes.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe7">
-        <h2>7. Creamy Tomato Soup</h2>
+    <div class="recipe recipe8">
+        <h2>8. Creamy Tomato Soup</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Comfort Food</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -214,11 +514,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Sauté onion and garlic, add tomatoes and simmer. Blend and stir in cream, then season with salt and pepper.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe8">
-        <h2>8. Chickpea Curry</h2>
+    <div class="recipe recipe9">
+        <h2>9. Chickpea Curry</h2>
         <div class="tags"><strong>Tags:</strong> Vegan, Spicy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -233,11 +548,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Sauté onion, add chickpeas and curry powder. Stir in coconut milk and simmer for 15 minutes. Season with salt.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe9">
-        <h2>9. Roasted Vegetable Medley</h2>
+    <div class="recipe recipe10">
+        <h2>10. Roasted Vegetable Medley</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Healthy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -251,11 +581,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Toss vegetables with olive oil, salt, and herbs. Roast at 425°F for 25-30 minutes.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe10">
-        <h2>10. Banana Pancakes</h2>
+    <div class="recipe recipe11">
+        <h2>11. Banana Pancakes</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Breakfast</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -270,12 +615,27 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Blend all ingredients until smooth. Cook on a skillet until golden brown. Serve with maple syrup.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
     <!-- Additional Recipes -->
-    <div class="recipe recipe11">
-        <h2>11. Spinach Frittata</h2>
+    <div class="recipe recipe12">
+        <h2>12. Spinach Frittata</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Breakfast</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -289,11 +649,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Whisk eggs, add spinach and feta. Pour into a skillet and cook until set.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe12">
-        <h2>12. Pesto Pasta</h2>
+    <div class="recipe recipe13">
+        <h2>13. Pesto Pasta</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Quick</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -307,11 +682,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Cook pasta, drain, and mix with pesto and parmesan. Serve warm.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe13">
-        <h2>13. Grilled Vegetable Sandwich</h2>
+    <div class="recipe recipe14">
+        <h2>14. Grilled Vegetable Sandwich</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Sandwich</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -325,11 +715,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Grill vegetables, spread hummus on bread, and layer with grilled veggies. Assemble sandwich.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe14">
-        <h2>14. Coconut Rice</h2>
+    <div class="recipe recipe15">
+        <h2>15. Coconut Rice</h2>
         <div class="tags"><strong>Tags:</strong> Vegan, Gluten-Free</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -343,11 +748,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Combine all ingredients in a pot, bring to a boil, then simmer until rice is cooked.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe15">
-        <h2>15. Baked Sweet Potatoes</h2>
+    <div class="recipe recipe16">
+        <h2>16. Baked Sweet Potatoes</h2>
         <div class="tags"><strong>Tags:</strong> Vegan, Healthy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -360,11 +780,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Rub sweet potatoes with olive oil, season, and bake at 400°F for 45 minutes.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe16">
-        <h2>16. Greek Yogurt Parfait</h2>
+    <div class="recipe recipe17">
+        <h2>17. Greek Yogurt Parfait</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Breakfast</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -377,11 +812,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Layer yogurt, granola, and berries in a glass. Serve immediately.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe17">
-        <h2>17. Vegetable Curry</h2>
+    <div class="recipe recipe18">
+        <h2>18. Vegetable Curry</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Spicy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -395,11 +845,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Cook vegetables with curry powder, add coconut milk, and simmer for 15 minutes. Season with salt.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe18">
-        <h2>18. Zucchini Noodles</h2>
+    <div class="recipe recipe19">
+        <h2>19. Zucchini Noodles</h2>
         <div class="tags"><strong>Tags:</strong> Vegan, Healthy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -413,11 +878,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Spiralize zucchinis, sauté with tomatoes and olive oil. Season to taste.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe19">
-        <h2>19. Avocado Toast</h2>
+    <div class="recipe recipe20">
+        <h2>20. Avocado Toast</h2>
         <div class="tags"><strong>Tags:</strong> Vegan, Breakfast</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -431,11 +911,26 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Toast bread, mash avocado, spread on toast, and season.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
-    <div class="recipe recipe20">
-        <h2>20. Fruit Salad</h2>
+    <div class="recipe recipe21">
+        <h2>21. Fruit Salad</h2>
         <div class="tags"><strong>Tags:</strong> Vegan, Fresh</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
@@ -449,9 +944,44 @@
         <div class="instructions">
             <strong>Instructions:</strong>
             <p>Mix all fruits in a bowl. Drizzle with honey if desired.</p>
+            </div>
+        <div class="rating">
+            <span data-rating="1" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="2" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="3" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="4" onclick="rateRecipe(event)">&#9733;</span>
+            <span data-rating="5" onclick="rateRecipe(event)">&#9733;</span>
+        </div>
+        <div class="comments">
+            <strong>Comments:</strong>
+            <ul id="comments-list-2"></ul>
+            <form class="comment-form" onsubmit="addComment(event, 2)">
+                <textarea id="comment-input-2" placeholder="Add a comment..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 </div>
+
+<h2>Add a New Recipe</h2>
+<form onsubmit="addRecipe(event)">
+    <input type="text" placeholder="Recipe Title" required>
+    <textarea placeholder="Ingredients" required></textarea>
+    <textarea placeholder="Instructions" required></textarea>
+    <select>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Gluten-Free">Gluten-Free</option>
+        <option value="Quick">Quick</option>
+        <option value="Healthy">Healthy</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Vegan">Vegan</option>
+        <option value="Spicy">Spicy</option>
+    </select>
+    <button type="submit">Add Recipe</button>
+</form>
 
 </body>
 </html>
