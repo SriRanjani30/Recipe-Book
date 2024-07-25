@@ -28,13 +28,20 @@
         }
         .recipe {
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 15px;
             margin: 10px 0;
-            color: #000; /* Change text color to black */
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            perspective: 1000px;
+        }
+        .recipe:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
         h2 {
-            color: #000; /* Change recipe title color to black */
+            color: #000;
         }
         .ingredients, .instructions, .tags {
             margin: 10px 0;
@@ -212,14 +219,14 @@
 
     <div class="recipe recipe8">
         <h2>8. Chickpea Curry</h2>
-        <div class="tags"><strong>Tags:</strong> Vegetarian, Spicy</div>
+        <div class="tags"><strong>Tags:</strong> Vegan, Spicy</div>
         <div class="ingredients">
             <strong>Ingredients:</strong>
             <ul>
                 <li>1 can chickpeas</li>
+                <li>1 onion, chopped</li>
                 <li>1 can coconut milk</li>
                 <li>2 tablespoons curry powder</li>
-                <li>1 onion, chopped</li>
                 <li>Salt to taste</li>
             </ul>
         </div>
@@ -266,6 +273,7 @@
         </div>
     </div>
 
+    <!-- Additional Recipes -->
     <div class="recipe recipe11">
         <h2>11. Spinach Frittata</h2>
         <div class="tags"><strong>Tags:</strong> Vegetarian, Breakfast</div>
@@ -440,10 +448,9 @@
         </div>
         <div class="instructions">
             <strong>Instructions:</strong>
-            <p>Mix all fruit in a bowl. Drizzle with honey if desired and serve.</p>
+            <p>Mix all fruits in a bowl. Drizzle with honey if desired.</p>
         </div>
     </div>
-
 </div>
 
 </body>
